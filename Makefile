@@ -49,3 +49,19 @@ wave_baud_rate:
 clean_baud_rate:
 	rm -rf $(VVP_BAUD)
 	rm -rf $(VCD_BAUD)
+
+# Target : Tx
+
+tx: compile_tx
+	$(SIMULATION) $(VVP_TX)
+
+compile_tx:
+	mkdir -p temp
+	$(COMPILER) $(COMPILER_FLAG2) $(COMPILER_FLAG1) $(VVP_TX) $(TX_TB) $(TX_SV)
+
+wave_tx:
+	$(WAVE) $(VCD_TX)
+
+clean_tx:
+	rm -rf $(VVP_TX)
+	rm -rf $(VCD_TX)

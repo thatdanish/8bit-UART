@@ -9,12 +9,14 @@ Universal Asynchronous Receiver-Transmitter (UART) is a commonly used serial dat
 ## Implementation
 This repository contains RTL implementation of 8-bit UART, written in system-verilog. Implementation is mainly divided into four major modules or blocks, baud rate generator, transmitted and receiver modules, respectively.
 
-### Exemplar parameters
+### Design Parameters
 - Clock freq (f<sub>clk</sub>) = 20 MHz
 - Baud Rate (B<sub>d</sub>) = 9600 bits/s
 - Oversampling = 16 
   
     Therefore, 
-    $$
-        Baud Divisor = \frac{20}{16*9600} ≈ 130
-    $$
+
+- $Baud Divisor = \frac{20}{16*9600} ≈ 130$
+- Start bit (LOW) : Tx line kept low in idle state.
+- Stop bit (HIGH) : Additional bit (Boolean 1) is augmented after the data.
+- No parity bits.
